@@ -25,4 +25,33 @@ function testSave(){
     })
 }
 
-testSave()
+// testSave()
+function testFind(){
+    //返回全部，数组类型
+    UserModel.find(function(err,users){
+        console.log('find',err,users)
+    })
+    //条件查询，对象类型
+    UserModel.findOne({_id:'60017266b35ed63e3c003063'},function(err,user){
+        console.log('findOne',err,user)
+
+    })
+}
+
+// testFind()
+
+function testUpdate(){
+    UserModel.findByIdAndUpdate({_id:'60017266b35ed63e3c003063'},{username:'hahaha'},function(err,oldUser){
+        console.log('findByIdAndUpdate',err,oldUser)
+    })
+}
+// testUpdate()
+
+function testDelete(){
+    // UserModel.findByIdAndRemove
+    UserModel.findByIdAndDelete({_id:'60017266b35ed63e3c003063'},function(err,deleteUser){
+        console.log('findByIdAndDelete',err,deleteUser)
+    })
+}
+
+testDelete()
